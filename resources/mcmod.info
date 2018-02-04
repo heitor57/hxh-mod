@@ -1,0 +1,16 @@
+[
+{
+  "modid": "hunterxhunter",
+  "name": "Hunter x Hunter",
+  "description": "Hunter x Hunter mod not created yet",
+  "version": "1.0",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Heitor L. Werneck"],
+  "credits": "My guys",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
