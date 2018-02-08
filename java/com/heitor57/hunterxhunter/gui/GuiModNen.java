@@ -10,7 +10,6 @@ import com.heitor57.hunterxhunter.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiModNen extends GuiScreen{
@@ -22,20 +21,22 @@ public class GuiModNen extends GuiScreen{
 	
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		drawDefaultBackground();
-		int centerx = (width/2)-guiwidth/2;
-		int centery = (height/2)-guiheight/2;
-		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
-		drawTexturedModalRect(centerx, centery, 0, 0, guiwidth, guiheight);
-		if(!auratype.isEmpty())
-			drawCenteredString(fontRenderer, "Aura type: "+auratype,width/2, centery,Color.WHITE.getRGB());
-		drawCenteredString(fontRenderer, "Enhancement",width/2,height/2-40, Color.GREEN.getRGB());
-		drawCenteredString(fontRenderer, "Transmutation",width/2+50,height/2-15, Color.MAGENTA.getRGB());
-		drawCenteredString(fontRenderer, "Conjuration",width/2+50,height/2+15, Color.RED.getRGB());
-		drawCenteredString(fontRenderer, "Emission",width/2-50,height/2-15, Color.YELLOW.getRGB());
-		drawCenteredString(fontRenderer, "Manipulation",width/2-50,height/2+15, Color.GRAY.getRGB());
-		drawCenteredString(fontRenderer, "Specialization",width/2,height/2+40, Color.BLUE.getRGB());
-		super.drawScreen(mouseX, mouseY, partialTicks);
+		
+			drawDefaultBackground();
+			int centerx = (width/2)-guiwidth/2;
+			int centery = (height/2)-guiheight/2;
+			Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+			drawTexturedModalRect(centerx, centery, 0, 0, guiwidth, guiheight);
+			if(!auratype.isEmpty())
+				drawCenteredString(fontRenderer, "Aura type: "+auratype,width/2, centery,Color.WHITE.getRGB());
+			drawCenteredString(fontRenderer, "Enhancement",width/2,height/2-40, Color.GREEN.getRGB());
+			drawCenteredString(fontRenderer, "Transmutation",width/2+50,height/2-15, Color.MAGENTA.getRGB());
+			drawCenteredString(fontRenderer, "Conjuration",width/2+50,height/2+15, Color.RED.getRGB());
+			drawCenteredString(fontRenderer, "Emission",width/2-50,height/2-15, Color.YELLOW.getRGB());
+			drawCenteredString(fontRenderer, "Manipulation",width/2-50,height/2+15, Color.GRAY.getRGB());
+			drawCenteredString(fontRenderer, "Specialization",width/2,height/2+40, Color.BLUE.getRGB());
+			super.drawScreen(mouseX, mouseY, partialTicks);
+		
 	}
 	
 	@Override

@@ -12,9 +12,6 @@ import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import scala.swing.event.KeyPressed;
 
 public class GuiModStats extends GuiScreen{
 	
@@ -25,22 +22,23 @@ public class GuiModStats extends GuiScreen{
 	final int BUTTON1 =0,BUTTON2=1;
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		if(Minecraft.getMinecraft().world.isRemote) {
-			IAttributeInstance strength = Minecraft.getMinecraft().player.getAttributeMap().getAttributeInstance(PlayerEventHandler.STRENGTH);
-			IAttributeInstance maxaura = Minecraft.getMinecraft().player.getAttributeMap().getAttributeInstance(PlayerEventHandler.MAX_AURA);
-			drawDefaultBackground();
-			int centerx = (width/2)-guiwidth/2;
-			int centery = (height/2)-guiheight/2;
-			Minecraft.getMinecraft().renderEngine.bindTexture(texture);
-			drawTexturedModalRect(centerx,centery,0,0,guiwidth,guiheight);
-			drawString(fontRenderer, "Stats",(width/2)-fontRenderer.getStringWidth("Stats")/2, centery, 0);
-			
-			drawString(fontRenderer,String.valueOf(strength.getBaseValue()),(width/2)-fontRenderer.getStringWidth(String.valueOf(strength.getBaseValue()))/2,height/2,0);
-			drawString(fontRenderer,String.valueOf(maxaura.getBaseValue()),(width/2)-fontRenderer.getStringWidth(String.valueOf(maxaura.getBaseValue()))/2,height/2+30,0);
-	
-			mc.getRenderItem().renderItemIntoGUI(new ItemStack(Items.EMERALD), centerx,centery);
-		}
+		
+		IAttributeInstance strength = Minecraft.getMinecraft().player.getAttributeMap().getAttributeInstance(PlayerEventHandler.STRENGTH);
+		IAttributeInstance maxaura = Minecraft.getMinecraft().player.getAttributeMap().getAttributeInstance(PlayerEventHandler.MAX_AURA);
+		drawDefaultBackground();
+		int centerx = (width/2)-guiwidth/2;
+		int centery = (height/2)-guiheight/2;
+		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+		drawTexturedModalRect(centerx,centery,0,0,guiwidth,guiheight);
+		drawString(fontRenderer, "Stats",(width/2)-fontRenderer.getStringWidth("Stats")/2, centery, 0);
+		
+		drawString(fontRenderer,String.valueOf(strength.getBaseValue()),(width/2)-fontRenderer.getStringWidth(String.valueOf(strength.getBaseValue()))/2,height/2,0);
+		drawString(fontRenderer,String.valueOf(maxaura.getBaseValue()),(width/2)-fontRenderer.getStringWidth(String.valueOf(maxaura.getBaseValue()))/2,height/2+30,0);
+
+		mc.getRenderItem().renderItemIntoGUI(new ItemStack(Items.EMERALD), centerx,centery);
+
 		super.drawScreen(mouseX, mouseY, partialTicks);
+		
 		
 	}
 	
