@@ -24,28 +24,13 @@ public class Fireball extends EntitySnowball{
 	static int count=0; 
 	@Override
 	protected void onImpact(RayTraceResult result) {
-		//if (!Minecraft.getMinecraft().world.isRemote) {
-			System.out.println("ewqewwq eqweqw ");
-			explosioooon(result.hitVec);
-			
-			Minecraft.getMinecraft().world.removeEntity(this);
-			super.onImpact(result);
-		//}
+		explosioooon(result.hitVec);
+		Minecraft.getMinecraft().world.removeEntity(this);
+		super.onImpact(result);
 	}
 	
 	public static void explosioooon(Vec3d vec) {
 		float size = 5f;
-		Explosion explosion = new Explosion(
-				Minecraft.getMinecraft().world,
-				null,
-				vec.x, 
-				vec.y,
-				vec.z,
-				size, 
-				false,
-				true);
 		hxh.network.sendToServer(new ServerMessage(vec.x,vec.y,vec.z,size));
-		explosion.doExplosionA();
-		explosion.doExplosionB(true);
 	}
 }

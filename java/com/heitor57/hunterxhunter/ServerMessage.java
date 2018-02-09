@@ -53,20 +53,13 @@ public class ServerMessage implements IMessage {
             mainThread.addScheduledTask(new Runnable() {
                 @Override
                 public void run() {
-                	
-	                	System.out.println("metodo run mymessage");
-	                	Explosion explosion = new Explosion(
-	                			ctx.getServerHandler().player.world,
-	                			null, 
-	                			message.x,
-	                			message.y,
-	                			message.z,
-	                			message.size,
-	                			false,
-	                			true);
-	                	explosion.doExplosionA();
-	            		explosion.doExplosionB(true);
-                	
+	            		ctx.getServerHandler().player.world.createExplosion(
+	            				null,
+	            				message.x,
+	            				message.y,
+	            				message.z, 
+	            				message.size,
+	            				true);
                 }
             });
             return null; // no response in this case
